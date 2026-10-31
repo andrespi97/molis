@@ -52,6 +52,8 @@ El horario de `#horarios` sigue la imagen de horarios facilitada por el box (L�
 - **Paleta:** naranja de marca `#f05a22`, tinta `#0b0b0b`, hueso `#f2efe8`, papel `#e7e2d7`. `--accent-ink` se usa para texto naranja pequeño sobre fondo claro (contraste AA).
 - **Tipografía:** Anton (titulares), Inter Tight (texto) y JetBrains Mono (etiquetas). Se cargan desde Google Fonts. Cuerpo a 15–17px y etiquetas mono a 10–11.5px para lectura cómoda; textos de relleno reducidos al mínimo.
 - **Estructura:** hero → marquee → 01 El box → 02 Disciplinas → 03 Horarios → 04 Tarifas → banda full-bleed → 05 En vivo → cita → 06 Contacto → footer.
+- **Medios a pantalla completa:** el hero es una imagen a sangre de `100svh` con titular, entradilla, CTAs y datos superpuestos; el manifiesto usa dos fotos a sangre (~88svh) con el texto encima; los dos reels de “En vivo” ocupan el ancho completo a ~86svh con el titular integrado y la galería va a sangre. En ≤900px reels y galería pasan a carrusel horizontal con snap.
+- **Navegación sobre imagen:** en el hero la nav va en hueso; al hacer scroll pasa a fondo hueso con texto tinta.
 - **Parallax:** hero, fotos del manifesto, banda y galería mediante `data-parallax` y `--parallax-y`. Se desactiva con `prefers-reduced-motion: reduce`.
 - **Vídeo:** `wod.mp4` arranca silenciado y en bucle; `hyfit.mp4` es click-to-play con poster y `preload="none"`. Ambos tienen botón de pausa/reproducción accesible.
 - **Sección de coaches desactivada:** no hay entrenadores en la navegación ni en la página. En su lugar está “El box, sin filtros” con vídeo y galería. Para recuperarla, crear el bloque y añadir el enlace en `#nav`, menú móvil y footer.

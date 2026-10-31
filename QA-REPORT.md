@@ -135,6 +135,15 @@ Tras el pedido de "letras más grandes y menos descripciones":
 - Anclas de navegación con offset correcto: sección a 94px (nav 78px + 16px)
 - Añadidos `robots.txt` y `sitemap.xml`
 
+## 12. Medios a pantalla completa (31/10)
+
+- **Hero a sangre:** imagen a `100svh` con titular, entradilla, CTAs y estadísticas superpuestos sobre un degradado; la imagen pasa a `sizes="100vw"` y la nav se invierte a claro mientras está sobre el hero.
+- **Manifiesto:** dos fotos a sangre (~88svh) con el titular y el párrafo integrados en la imagen principal; la segunda foto conserva su pie. En ≤900px se apilan y en móvil usan 3/4.
+- **En vivo:** dos reels a ancho completo (~86svh) con “El box, sin filtros” superpuesto; galería a sangre en tres columnas con alturas escalonadas. En ≤900px ambos pasan a carrusel horizontal con `scroll-snap`.
+- **Banda:** sube a ~92svh.
+- Verificado en 320, 390, 768, 1024, 1280, 1440, 1600 y 1920px: 0 scroll horizontal, 0 texto recortado, 0 errores de consola, 0 IDs duplicados, 0 anchors rotos. Anclas a 94px, formulario y toggles de vídeo correctos.
+- En 320×568 el hero crece a 674px porque el contenido no cabe en 568px; se resuelve con scroll vertical, sin solapes.
+
 ## Pendientes para producción (de README)
 
 1. Conectar el formulario a un endpoint real

@@ -67,7 +67,7 @@
   <a class="skip-link" href="#main">Saltar al contenido</a>
 
   <!-- ============ HEADER ============ -->
-  <header class="nav" id="nav">
+  <header class="nav nav--hero" id="nav">
     <div class="nav__inner wrap">
       <a class="logo" href="#top" aria-label="Molis Box — inicio">
         <img class="logo__mark" src="assets/img/logo-mark.webp" alt="" width="40" height="40">
@@ -126,16 +126,6 @@
           </h1>
         </div>
 
-        <figure class="hero__media parallax" data-parallax="0.16">
-          <img src="assets/img/hero.jpg"
-               srcset="assets/img/hero-720.jpg 720w, assets/img/hero.jpg 1080w"
-               sizes="(max-width: 900px) 100vw, 40vw"
-               width="1080" height="1350"
-               alt="Atleta de Molis Box levantando una mancuerna sobre la cabeza en la pista del box"
-               fetchpriority="high">
-          <figcaption class="hero__caption">WOD · 19:00 · un martes cualquiera</figcaption>
-        </figure>
-
         <div class="hero__body">
           <p class="hero__lead">WOD, fullbody, hyfit, haltero y mobility. Sesiones de 45 a 60 minutos. Compites contra tu último martes.</p>
           <div class="hero__cta">
@@ -149,6 +139,16 @@
           </dl>
         </div>
       </div>
+
+      <figure class="hero__media parallax" data-parallax="0.16">
+        <img src="assets/img/hero.jpg"
+             srcset="assets/img/hero-720.jpg 720w, assets/img/hero.jpg 1080w"
+             sizes="100vw"
+             width="1080" height="1350"
+             alt="Atleta de Molis Box levantando una mancuerna sobre la cabeza en la pista del box"
+             fetchpriority="high">
+        <figcaption class="hero__caption">WOD · 19:00 · un martes cualquiera</figcaption>
+      </figure>
 
       <div class="marquee" aria-hidden="true">
         <div class="marquee__track">
@@ -167,16 +167,31 @@
           <span class="sec-note">Guizán · Mos · Pontevedra</span>
         </header>
 
-        <div class="manifesto__grid">
-          <h2 class="display manifesto__title reveal">
-            No entrenas<br>solo.<br><em>Entrenas con</em><br><em>nosotros.</em>
-          </h2>
-          <div class="manifesto__side reveal" style="--d:.12s">
-            <p>Entrenamos juntos, nos divertimos y las clases se adaptan a tu nivel. En Guizán, a un paso de Vigo y Pontevedra.</p>
-            <a class="link-arrow link-arrow--light" href="#disciplinas">Conoce las disciplinas <span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
+      </div>
 
+      <div class="manifesto__stage">
+        <figure class="manifesto__main parallax reveal" data-parallax="0.04">
+          <img src="assets/img/manifesto-a.jpg" width="1440" height="900" alt="Dos socios de Molis Box chocando las manos después de una clase" loading="lazy">
+          <div class="manifesto__scrim" aria-hidden="true"></div>
+          <div class="manifesto__overlay wrap">
+            <h2 class="display manifesto__title reveal">
+              No entrenas<br>solo.<br><em>Entrenas con</em><br><em>nosotros.</em>
+            </h2>
+            <div class="manifesto__side reveal" style="--d:.12s">
+              <p>Entrenamos juntos, nos divertimos y las clases se adaptan a tu nivel. En Guizán, a un paso de Vigo y Pontevedra.</p>
+              <a class="link-arrow link-arrow--light" href="#disciplinas">Conoce las disciplinas <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+          <figcaption>El equipo · sábado 10:00</figcaption>
+        </figure>
+
+        <figure class="manifesto__inset parallax reveal" data-parallax="0.1" style="--d:.1s">
+          <img src="assets/img/manifesto-b.jpg" width="900" height="1200" alt="Socio de Molis Box con la camiseta del box de espaldas" loading="lazy">
+          <figcaption>Molis Box · Guizán, Mos</figcaption>
+        </figure>
+      </div>
+
+      <div class="wrap">
         <dl class="stats">
           <div class="stat reveal">
             <dd>06</dd>
@@ -191,17 +206,6 @@
             <dt>Coach en pista</dt>
           </div>
         </dl>
-
-        <div class="manifesto__media">
-          <figure class="m-img m-img--a parallax reveal" data-parallax="0.12">
-            <img src="assets/img/manifesto-a.jpg" width="1440" height="900" alt="Dos socios de Molis Box chocando las manos después de una clase" loading="lazy">
-            <figcaption>El equipo · sábado 10:00</figcaption>
-          </figure>
-          <figure class="m-img m-img--b parallax reveal" data-parallax="0.2" style="--d:.12s">
-            <img src="assets/img/manifesto-b.jpg" width="900" height="1200" alt="Socio de Molis Box con la camiseta del box de espaldas" loading="lazy">
-            <figcaption>Molis Box · Guizán, Mos</figcaption>
-          </figure>
-        </div>
       </div>
     </section>
 
@@ -436,47 +440,49 @@
           <span class="sec-rule"></span>
           <span class="sec-note">Fotos y vídeo reales</span>
         </header>
+      </div>
 
-        <div class="live__grid">
+      <div class="live__stage">
+        <div class="live__overlay wrap">
           <div class="live__copy">
             <h2 class="display reveal">El box,<br>sin filtros.</h2>
             <p class="live__text reveal" style="--d:.08s">Un martes cualquiera en Guizán.</p>
             <a class="link-arrow reveal" style="--d:.16s" href="https://www.instagram.com/molisbox/" target="_blank" rel="noopener">Ver más en Instagram <span aria-hidden="true">↗</span></a>
           </div>
-
-          <div class="reels">
-            <figure class="reel reveal">
-              <video class="reel__video" muted loop playsinline autoplay preload="metadata" poster="assets/img/poster-wod.jpg" aria-label="Vídeo de un entrenamiento WOD en Molis Box">
-                <source src="assets/video/wod.mp4" type="video/mp4">
-              </video>
-              <figcaption class="reel__caption"><span>01</span>WOD · 19:00</figcaption>
-              <button class="reel__toggle" type="button" aria-label="Pausar vídeo">Pausa</button>
-            </figure>
-
-            <figure class="reel reel--offset reveal" style="--d:.1s">
-              <video class="reel__video" muted loop playsinline preload="none" poster="assets/img/poster-hyfit.jpg" aria-label="Vídeo de una salida de Hyfit en Molis Box">
-                <source src="assets/video/hyfit.mp4" type="video/mp4">
-              </video>
-              <figcaption class="reel__caption"><span>02</span>Hyfit · salida a correr</figcaption>
-              <button class="reel__toggle" type="button" aria-label="Reproducir vídeo">Reproducir</button>
-            </figure>
-          </div>
         </div>
 
-        <div class="gallery">
-          <figure class="gallery__item gallery__item--tall parallax reveal">
-            <img src="assets/img/gallery-a.jpg" width="720" height="900" alt="Socio de Molis Box con una barra en la zona de fuerza" loading="lazy">
-            <figcaption>Fuerza · cada semana</figcaption>
+        <div class="reels">
+          <figure class="reel reveal">
+            <video class="reel__video" muted loop playsinline autoplay preload="metadata" poster="assets/img/poster-wod.jpg" aria-label="Vídeo de un entrenamiento WOD en Molis Box">
+              <source src="assets/video/wod.mp4" type="video/mp4">
+            </video>
+            <figcaption class="reel__caption"><span>01</span>WOD · 19:00</figcaption>
+            <button class="reel__toggle" type="button" aria-label="Pausar vídeo">Pausa</button>
           </figure>
-          <figure class="gallery__item parallax reveal" data-parallax="0.18" style="--d:.08s">
-            <img src="assets/img/gallery-b.jpg" width="720" height="900" alt="Dos socios de Molis Box conversando después de entrenar" loading="lazy">
-            <figcaption>Después del WOD</figcaption>
-          </figure>
-          <figure class="gallery__item gallery__item--tall parallax reveal" data-parallax="0.24" style="--d:.16s">
-            <img src="assets/img/gallery-c.jpg" width="720" height="900" alt="Socia de Molis Box levantando una barra sobre la cabeza" loading="lazy">
-            <figcaption>Técnica primero</figcaption>
+
+          <figure class="reel reveal" style="--d:.1s">
+            <video class="reel__video" muted loop playsinline preload="none" poster="assets/img/poster-hyfit.jpg" aria-label="Vídeo de una salida de Hyfit en Molis Box">
+              <source src="assets/video/hyfit.mp4" type="video/mp4">
+            </video>
+            <figcaption class="reel__caption"><span>02</span>Hyfit · salida a correr</figcaption>
+            <button class="reel__toggle" type="button" aria-label="Reproducir vídeo">Reproducir</button>
           </figure>
         </div>
+      </div>
+
+      <div class="gallery">
+        <figure class="gallery__item gallery__item--tall parallax reveal">
+          <img src="assets/img/gallery-a.jpg" width="720" height="900" alt="Socio de Molis Box con una barra en la zona de fuerza" loading="lazy">
+          <figcaption>Fuerza · cada semana</figcaption>
+        </figure>
+        <figure class="gallery__item parallax reveal" data-parallax="0.18" style="--d:.08s">
+          <img src="assets/img/gallery-b.jpg" width="720" height="900" alt="Dos socios de Molis Box conversando después de entrenar" loading="lazy">
+          <figcaption>Después del WOD</figcaption>
+        </figure>
+        <figure class="gallery__item gallery__item--tall parallax reveal" data-parallax="0.24" style="--d:.16s">
+          <img src="assets/img/gallery-c.jpg" width="720" height="900" alt="Socia de Molis Box levantando una barra sobre la cabeza" loading="lazy">
+          <figcaption>Técnica primero</figcaption>
+        </figure>
       </div>
     </section>
 
