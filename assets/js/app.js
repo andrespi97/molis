@@ -21,6 +21,7 @@
   const onScroll = () => {
     const y = window.scrollY;
     nav.classList.toggle("is-stuck", y > 24);
+    document.body.classList.toggle("has-scrolled", y > window.innerHeight * 0.55);
 
     const doc = document.documentElement;
     const max = doc.scrollHeight - window.innerHeight;

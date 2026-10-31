@@ -128,11 +128,18 @@ Tras el pedido de "letras más grandes y menos descripciones":
 - Form vacío → errores; válido → `is-sent` ✅
 - Menú móvil, vídeo, reveals 29/29 ✅
 
+**Ajustes móviles (31/10):**
+- La barra fija inferior (`Reservar clase / Llamar`) ya no aparece sobre el hero: se muestra a partir de ~55% del viewport (`body.has-scrolled`), así no duplica el CTA del hero ni tapa el texto de entrada
+- Oculto el aviso “Pasa el cursor” en ≤900px, donde la vista previa de disciplinas no existe
+- Comprobado en 390, 768, 1024, 1280 y 1440px: 0 texto recortado, 0 scroll horizontal
+- Anclas de navegación con offset correcto: sección a 94px (nav 78px + 16px)
+- Añadidos `robots.txt` y `sitemap.xml`
+
 ## Pendientes para producción (de README)
 
 1. Conectar el formulario a un endpoint real
 2. Completar NIF + correo definitivo en `privacidad.html`
 3. Confirmar tarifas con el box
 4. Actualizar dominio si no es `molisbox.com`
-5. `robots.txt` + `sitemap.xml`
+5. Revisar `robots.txt`/`sitemap.xml` y el `noindex` de la página legal
 6. Valorar autoalojar las fuentes

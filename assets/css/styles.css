@@ -1849,6 +1849,7 @@ html.js .reveal.is-in { opacity: 1; transform: none; }
   .classes__grid { display: block; }
   .classes__intro { position: static; }
   .classes__preview { display: none; }
+  .classes__hint { display: none; }
       .classes__list { margin-top: 0; }
   .class-row { grid-template-columns: 34px minmax(0, 1fr) 20px; padding: 18px 8px; }
   .classes__list > li { position: relative; }
@@ -1898,7 +1899,14 @@ html.js .reveal.is-in { opacity: 1; transform: none; }
   .footer__brand p { max-width: 40ch; }
 
   body { padding-bottom: 62px; }
-  .mobile-cta { display: flex; }
+  .mobile-cta {
+    display: flex;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(110%);
+    transition: opacity 0.35s var(--ease), transform 0.35s var(--ease), visibility 0.35s;
+  }
+  body.has-scrolled .mobile-cta { opacity: 1; visibility: visible; transform: none; }
   body.menu-open { padding-bottom: 0; }
   body.menu-open .mobile-cta { display: none; }
   .legal-layout { grid-template-columns: 1fr; gap: 34px; }

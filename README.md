@@ -5,6 +5,8 @@ Sitio de una página para **Molis Box**, box de cross training en Camiño Santia
 ```
 index.html              · página principal (secciones, copia, SEO, JSON-LD)
 privacidad.html         · aviso legal, privacidad y cookies
+robots.txt              · indexación (privacidad.html excluida)
+sitemap.xml             · mapa del sitio
 assets/css/styles.css   · sistema visual, layout, responsive, parallax y motion
 assets/js/app.js        · menú, reveals, scrollspy, horarios, parallax, vídeo y formulario
 assets/img/             · fotos optimizadas, logo, posters y OG image
@@ -60,8 +62,8 @@ El horario de `#horarios` sigue la imagen de horarios facilitada por el box (L�
 1. **Conectar el formulario** a un endpoint real (Formspree, Resend, Cloudflare Worker o API propia) en el handler `submit` de `assets/js/app.js`. Hoy solo muestra `#formSuccess`.
 2. **Completar datos legales** en `privacidad.html`: NIF, correo definitivo y revisión por asesoría. El correo `info@molisbox.com` es provisional.
 3. **Confirmar tarifas, horarios y condiciones** con el box. La nota de `#precios` ya avisa de que deben consultarse.
-4. **Dominio:** canonical, `og:url`, `og:image` y JSON-LD apuntan a `https://molisbox.com/`. Si el dominio final es otro, actualizar `index.html`, `privacidad.html` y el JSON-LD.
-5. **Añadir** `robots.txt` y `sitemap.xml`, y revisar que `privacidad.html` no quede bloqueada si se quiere indexar.
+4. **Dominio:** canonical, `og:url`, `og:image`, JSON-LD, `robots.txt` y `sitemap.xml` apuntan a `https://molisbox.com/`. Si el dominio final es otro, actualizar `index.html`, `privacidad.html` y el JSON-LD.
+5. **Revisar** `robots.txt` y `sitemap.xml` tras confirmar el dominio. `privacidad.html` va en `noindex` y bloqueada en `robots.txt`; quitar ambas cosas solo si se quiere indexar.
 6. **Fonts:** valorar autoalojar Anton, Inter Tight y JetBrains Mono para rendimiento y GDPR (hoy se piden a Google Fonts).
 
 ## Medios
