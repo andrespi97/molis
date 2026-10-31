@@ -42,14 +42,13 @@ No abras `index.html` con `file://`: los vídeos y algunas rutas necesitan servi
 - Molis Method · 85 €/mes
 - Molis Gym · +10 €/mes
 - Bono 1 sesión · 8 €
-- Primera clase · gratis
 
 El horario de `#horarios` sigue la imagen de horarios facilitada por el box (L–V con varias franjas a las 19:00 y 20:00, sábado 10:00 + Open Box). Se renderiza desde el array `SCHEDULE` en `assets/js/app.js`; el día actual se selecciona automáticamente y las pestañas admiten flechas, `Home` y `End`.
 
 ## Diseño y comportamiento
 
 - **Paleta:** naranja de marca `#f05a22`, tinta `#0b0b0b`, hueso `#f2efe8`, papel `#e7e2d7`. `--accent-ink` se usa para texto naranja pequeño sobre fondo claro (contraste AA).
-- **Tipografía:** Anton (titulares), Inter Tight (texto) y JetBrains Mono (etiquetas). Se cargan desde Google Fonts.
+- **Tipografía:** Anton (titulares), Inter Tight (texto) y JetBrains Mono (etiquetas). Se cargan desde Google Fonts. Cuerpo a 15–17px y etiquetas mono a 10–11.5px para lectura cómoda; textos de relleno reducidos al mínimo.
 - **Estructura:** hero → marquee → 01 El box → 02 Disciplinas → 03 Horarios → 04 Tarifas → banda full-bleed → 05 En vivo → cita → 06 Contacto → footer.
 - **Parallax:** hero, fotos del manifesto, banda y galería mediante `data-parallax` y `--parallax-y`. Se desactiva con `prefers-reduced-motion: reduce`.
 - **Vídeo:** `wod.mp4` arranca silenciado y en bucle; `hyfit.mp4` es click-to-play con poster y `preload="none"`. Ambos tienen botón de pausa/reproducción accesible.

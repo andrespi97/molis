@@ -1,6 +1,6 @@
 # Molis Box · QA Report
 
-Fecha: 30/10/2026 · Servidor: `http://localhost:4173` (python3 http.server) · Playwright + Chromium headless
+Fecha: 31/10/2026 (revisión tras pasada de tipografía) · Servidor: `http://localhost:4173` (python3 http.server) · Playwright + Chromium headless
 
 ## Resultado global: ✅ PASS (2 falsos positivos descartados, 0 bugs reales)
 
@@ -96,6 +96,37 @@ Skip link, `:focus-visible`, menú móvil con `inert` + Escape, roles ARIA en ta
 ## 10. Capturas de pantalla
 
 Generadas en `~/Proyectos/molis/.qa/` o en temp: hero desktop/mobile, secciones `box`, `disciplinas`, `horarios`, `precios`, `envivo`, `contacto`, footer, menú móvil, página legal (desktop/mobile). Revisión visual: sin solapamientos, sin elementos cortados, jerarquía correcta.
+
+## 11. Pasada de tipografía y limpieza de relleno (31/10/2026)
+
+Tras el pedido de "letras más grandes y menos descripciones":
+
+**Textos eliminados** (sin relleno):
+- Descripción de cada disciplina en `#disciplinas` (6 párrafos) — queda solo nombre + duración/nivel
+- Párrafo introductorio de `#disciplinas` y link redundante del foot
+- Segundo párrafo del manifesto (1 parrafo conciso en su lugar)
+- Párrafos largos de `#horarios`, `#precios`, `#envivo`, `#contacto` y footer
+- Etiquetas de planes reducidas de 4–5 bullets a 3–4
+- Meta por fila de horario ("Coach en pista · Todos los niveles") eliminada; solo queda "Acceso libre" en Open Box
+- Tags duplicados de disciplinas en `#envivo` (6 etiquetas)
+- Estadísticas del hero con dt más cortos
+
+**Tipografía escalada**:
+- Etiquetas mono: 8–9.5px → 10–11.5px (todas las `.sec-index`, `.slot__cta`, `.price small`, `.class-row__meta`, etc.)
+- Párrafos de cuerpo: 13–15px → 15–17px (`.schedule__intro`, `.pricing__intro`, `.trial__copy`, `.band__copy`, `.live__text`, `.contact__lead`, `.form__note`)
+- Plan `ul`: 12.5px → 15px
+- Inputs de formulario: 14.5px → 16px
+- Labels mono del menú/hero: 11px → 12px
+- `.logo__word`: 27px → 30px
+- Títulos medianos (`.plan__head h3`, `.form__title`, stats dd) +15–20%
+- Hero title desktop: clamp subido a 7.2/7.6rem en móvil (line-height 0.9)
+
+**Verificación post-cambio** (Playwright, 31/10):
+- 6 viewports: 0 errores consola, 0 IDs duplicados, 0 anchors rotos, 0 overflow real
+- Hero sigue encajando exacto: 900/800/768/900/768px (desktop) y 1110px (móvil apilado)
+- Horario: Lun–Jue 9 slots, Vie 8, Sáb 1 (hoy sábado, autoselección correcta)
+- Form vacío → errores; válido → `is-sent` ✅
+- Menú móvil, vídeo, reveals 29/29 ✅
 
 ## Pendientes para producción (de README)
 
