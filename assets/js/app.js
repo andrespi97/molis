@@ -332,6 +332,24 @@
     video.addEventListener("loadeddata", sync);
     video.addEventListener("ended", sync);
     sync();
+
+    // El vídeo de fondo no se descarga hasta que la sección está cerca.
+    if (!reduceMotion && video.hasAttribute("data-autostart")) {
+      const start = () => {
+        if (video.paused) video.play().catch(() => {});
+      };
+      if ("IntersectionObserver" in window) {
+        const io = new IntersectionObserver((entries) => {
+          if (entries.some((entry) => entry.isIntersecting)) {
+            start();
+            io.disconnect();
+          }
+        }, { rootMargin: "320px 0px" });
+        io.observe(reel);
+      } else {
+        start();
+      }
+    }
   });
 
   /* ---------------------------------------------------------

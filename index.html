@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter+Tight:ital,wght@0,300..700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <link rel="preload" as="image" href="assets/img/hero.jpg" imagesrcset="assets/img/hero-720.jpg 720w, assets/img/hero.jpg 1080w" imagesizes="(max-width: 900px) 100vw, 40vw">
+  <link rel="preload" as="image" type="image/avif" href="assets/img/hero-720.avif" imagesrcset="assets/img/hero-720.avif 720w, assets/img/hero.avif 1080w" imagesizes="100vw" fetchpriority="high">
   <link rel="stylesheet" href="assets/css/styles.css">
   <script>document.documentElement.classList.replace('no-js','js');</script>
 
@@ -70,7 +70,7 @@
   <header class="nav nav--hero" id="nav">
     <div class="nav__inner wrap">
       <a class="logo" href="#top" aria-label="Molis Box — inicio">
-        <img class="logo__mark" src="assets/img/logo-mark.webp" alt="" width="40" height="40">
+        <img class="logo__mark" src="assets/img/logo-mark-96.webp" srcset="assets/img/logo-mark-96.webp 1x, assets/img/logo-mark-192.webp 2x" alt="" width="40" height="40">
         <span class="logo__word">Molis<span>Box</span></span>
         <span class="logo__tag">Cross training<br>Mos · Pontevedra</span>
       </a>
@@ -141,12 +141,16 @@
       </div>
 
       <figure class="hero__media parallax" data-parallax="0.16">
-        <img src="assets/img/hero.jpg"
-             srcset="assets/img/hero-720.jpg 720w, assets/img/hero.jpg 1080w"
-             sizes="100vw"
-             width="1080" height="1350"
-             alt="Atleta de Molis Box levantando una mancuerna sobre la cabeza en la pista del box"
-             fetchpriority="high">
+        <picture>
+          <source type="image/avif" srcset="assets/img/hero-720.avif 720w, assets/img/hero.avif 1080w" sizes="100vw">
+          <source type="image/webp" srcset="assets/img/hero-720.webp 720w, assets/img/hero.webp 1080w" sizes="100vw">
+          <img src="assets/img/hero.jpg"
+               srcset="assets/img/hero-720.jpg 720w, assets/img/hero.jpg 1080w"
+               sizes="100vw"
+               width="1080" height="1350"
+               alt="Atleta de Molis Box levantando una mancuerna sobre la cabeza en la pista del box"
+               fetchpriority="high">
+        </picture>
         <figcaption class="hero__caption">WOD · 19:00 · un martes cualquiera</figcaption>
       </figure>
 
@@ -171,7 +175,11 @@
 
       <div class="manifesto__stage">
         <figure class="manifesto__main parallax reveal" data-parallax="0.04">
-          <img src="assets/img/manifesto-a.jpg" width="1440" height="900" alt="Dos socios de Molis Box chocando las manos después de una clase" loading="lazy">
+          <picture>
+            <source type="image/avif" srcset="assets/img/manifesto-a-720.avif 720w, assets/img/manifesto-a-1080.avif 1080w, assets/img/manifesto-a-1440.avif 1440w" sizes="(max-width: 900px) 100vw, 63vw">
+            <source type="image/webp" srcset="assets/img/manifesto-a-720.webp 720w, assets/img/manifesto-a-1080.webp 1080w, assets/img/manifesto-a-1440.webp 1440w" sizes="(max-width: 900px) 100vw, 63vw">
+            <img src="assets/img/manifesto-a-1440.jpg" srcset="assets/img/manifesto-a-720.jpg 720w, assets/img/manifesto-a-1080.jpg 1080w, assets/img/manifesto-a-1440.jpg 1440w" sizes="(max-width: 900px) 100vw, 63vw" width="1440" height="900" alt="Dos socios de Molis Box chocando las manos después de una clase" loading="lazy" decoding="async">
+          </picture>
           <div class="manifesto__scrim" aria-hidden="true"></div>
           <div class="manifesto__overlay wrap">
             <h2 class="display manifesto__title reveal">
@@ -186,7 +194,11 @@
         </figure>
 
         <figure class="manifesto__inset parallax reveal" data-parallax="0.1" style="--d:.1s">
-          <img src="assets/img/manifesto-b.jpg" width="900" height="1200" alt="Socio de Molis Box con la camiseta del box de espaldas" loading="lazy">
+          <picture>
+            <source type="image/avif" srcset="assets/img/manifesto-b-450.avif 450w, assets/img/manifesto-b-675.avif 675w, assets/img/manifesto-b-900.avif 900w" sizes="(max-width: 900px) 100vw, 37vw">
+            <source type="image/webp" srcset="assets/img/manifesto-b-450.webp 450w, assets/img/manifesto-b-675.webp 675w, assets/img/manifesto-b-900.webp 900w" sizes="(max-width: 900px) 100vw, 37vw">
+            <img src="assets/img/manifesto-b-900.jpg" srcset="assets/img/manifesto-b-450.jpg 450w, assets/img/manifesto-b-675.jpg 675w, assets/img/manifesto-b-900.jpg 900w" sizes="(max-width: 900px) 100vw, 37vw" width="900" height="1200" alt="Socio de Molis Box con la camiseta del box de espaldas" loading="lazy" decoding="async">
+          </picture>
           <figcaption>Molis Box · Guizán, Mos</figcaption>
         </figure>
       </div>
@@ -223,12 +235,36 @@
             <h2 class="display reveal">Elige tu<br>campo de<br>batalla.</h2>
 
             <div class="classes__preview" id="classPreview" aria-hidden="true">
-              <img src="assets/img/disc-wod.jpg" alt="" class="is-active" width="720" height="900">
-              <img src="assets/img/disc-fullbody.jpg" alt="" width="720" height="900">
-              <img src="assets/img/disc-hyfit.jpg" alt="" width="720" height="900">
-              <img src="assets/img/disc-haltero.jpg" alt="" width="720" height="900">
-              <img src="assets/img/disc-mobility.jpg" alt="" width="720" height="900">
-              <img src="assets/img/disc-personal.jpg" alt="" width="720" height="900">
+              <picture>
+                <source type="image/avif" srcset="assets/img/disc-wod-360.avif 360w, assets/img/disc-wod-540.avif 540w, assets/img/disc-wod-720.avif 720w" sizes="330px">
+                <source type="image/webp" srcset="assets/img/disc-wod-360.webp 360w, assets/img/disc-wod-540.webp 540w, assets/img/disc-wod-720.webp 720w" sizes="330px">
+                <img src="assets/img/disc-wod-720.jpg" srcset="assets/img/disc-wod-360.jpg 360w, assets/img/disc-wod-540.jpg 540w, assets/img/disc-wod-720.jpg 720w" sizes="330px" alt="" class="is-active" width="720" height="900" loading="lazy" decoding="async">
+              </picture>
+              <picture>
+                <source type="image/avif" srcset="assets/img/disc-fullbody-360.avif 360w, assets/img/disc-fullbody-540.avif 540w, assets/img/disc-fullbody-720.avif 720w" sizes="330px">
+                <source type="image/webp" srcset="assets/img/disc-fullbody-360.webp 360w, assets/img/disc-fullbody-540.webp 540w, assets/img/disc-fullbody-720.webp 720w" sizes="330px">
+                <img src="assets/img/disc-fullbody-720.jpg" srcset="assets/img/disc-fullbody-360.jpg 360w, assets/img/disc-fullbody-540.jpg 540w, assets/img/disc-fullbody-720.jpg 720w" sizes="330px" alt="" width="720" height="900" loading="lazy" decoding="async">
+              </picture>
+              <picture>
+                <source type="image/avif" srcset="assets/img/disc-hyfit-360.avif 360w, assets/img/disc-hyfit-540.avif 540w, assets/img/disc-hyfit-720.avif 720w" sizes="330px">
+                <source type="image/webp" srcset="assets/img/disc-hyfit-360.webp 360w, assets/img/disc-hyfit-540.webp 540w, assets/img/disc-hyfit-720.webp 720w" sizes="330px">
+                <img src="assets/img/disc-hyfit-720.jpg" srcset="assets/img/disc-hyfit-360.jpg 360w, assets/img/disc-hyfit-540.jpg 540w, assets/img/disc-hyfit-720.jpg 720w" sizes="330px" alt="" width="720" height="900" loading="lazy" decoding="async">
+              </picture>
+              <picture>
+                <source type="image/avif" srcset="assets/img/disc-haltero-360.avif 360w, assets/img/disc-haltero-540.avif 540w, assets/img/disc-haltero-720.avif 720w" sizes="330px">
+                <source type="image/webp" srcset="assets/img/disc-haltero-360.webp 360w, assets/img/disc-haltero-540.webp 540w, assets/img/disc-haltero-720.webp 720w" sizes="330px">
+                <img src="assets/img/disc-haltero-720.jpg" srcset="assets/img/disc-haltero-360.jpg 360w, assets/img/disc-haltero-540.jpg 540w, assets/img/disc-haltero-720.jpg 720w" sizes="330px" alt="" width="720" height="900" loading="lazy" decoding="async">
+              </picture>
+              <picture>
+                <source type="image/avif" srcset="assets/img/disc-mobility-360.avif 360w, assets/img/disc-mobility-540.avif 540w, assets/img/disc-mobility-720.avif 720w" sizes="330px">
+                <source type="image/webp" srcset="assets/img/disc-mobility-360.webp 360w, assets/img/disc-mobility-540.webp 540w, assets/img/disc-mobility-720.webp 720w" sizes="330px">
+                <img src="assets/img/disc-mobility-720.jpg" srcset="assets/img/disc-mobility-360.jpg 360w, assets/img/disc-mobility-540.jpg 540w, assets/img/disc-mobility-720.jpg 720w" sizes="330px" alt="" width="720" height="900" loading="lazy" decoding="async">
+              </picture>
+              <picture>
+                <source type="image/avif" srcset="assets/img/disc-personal-360.avif 360w, assets/img/disc-personal-540.avif 540w, assets/img/disc-personal-720.avif 720w" sizes="330px">
+                <source type="image/webp" srcset="assets/img/disc-personal-360.webp 360w, assets/img/disc-personal-540.webp 540w, assets/img/disc-personal-720.webp 720w" sizes="330px">
+                <img src="assets/img/disc-personal-720.jpg" srcset="assets/img/disc-personal-360.jpg 360w, assets/img/disc-personal-540.jpg 540w, assets/img/disc-personal-720.jpg 720w" sizes="330px" alt="" width="720" height="900" loading="lazy" decoding="async">
+              </picture>
               <span class="classes__preview-label" id="previewLabel">01 / WOD</span>
             </div>
 
@@ -238,7 +274,7 @@
           <div class="classes__right">
             <ul class="classes__list">
               <li>
-                <a class="class-row" href="#horarios" data-index="0" style="--thumb:url('assets/img/thumb-wod.jpg')">
+                <a class="class-row" href="#horarios" data-index="0" style="--thumb:url('assets/img/thumb-wod.webp')">
                   <span class="class-row__num">01</span>
                   <span class="class-row__name">WOD</span>
                   <span class="class-row__meta">60' · Todos los niveles</span>
@@ -246,7 +282,7 @@
                 </a>
               </li>
               <li>
-                <a class="class-row" href="#horarios" data-index="1" style="--thumb:url('assets/img/thumb-fullbody.jpg')">
+                <a class="class-row" href="#horarios" data-index="1" style="--thumb:url('assets/img/thumb-fullbody.webp')">
                   <span class="class-row__num">02</span>
                   <span class="class-row__name">Fullbody</span>
                   <span class="class-row__meta">45' · Todos los niveles</span>
@@ -254,7 +290,7 @@
                 </a>
               </li>
               <li>
-                <a class="class-row" href="#horarios" data-index="2" style="--thumb:url('assets/img/thumb-hyfit.jpg')">
+                <a class="class-row" href="#horarios" data-index="2" style="--thumb:url('assets/img/thumb-hyfit.webp')">
                   <span class="class-row__num">03</span>
                   <span class="class-row__name">Hyfit</span>
                   <span class="class-row__meta">45–60' · Todos los niveles</span>
@@ -262,7 +298,7 @@
                 </a>
               </li>
               <li>
-                <a class="class-row" href="#horarios" data-index="3" style="--thumb:url('assets/img/thumb-haltero.jpg')">
+                <a class="class-row" href="#horarios" data-index="3" style="--thumb:url('assets/img/thumb-haltero.webp')">
                   <span class="class-row__num">04</span>
                   <span class="class-row__name">Haltero</span>
                   <span class="class-row__meta">60' · Intermedio</span>
@@ -270,7 +306,7 @@
                 </a>
               </li>
               <li>
-                <a class="class-row" href="#horarios" data-index="4" style="--thumb:url('assets/img/thumb-mobility.jpg')">
+                <a class="class-row" href="#horarios" data-index="4" style="--thumb:url('assets/img/thumb-mobility.webp')">
                   <span class="class-row__num">05</span>
                   <span class="class-row__name">Mobility</span>
                   <span class="class-row__meta">45' · Todos los niveles</span>
@@ -278,7 +314,7 @@
                 </a>
               </li>
               <li>
-                <a class="class-row" href="#contacto" data-index="5" style="--thumb:url('assets/img/thumb-personal.jpg')">
+                <a class="class-row" href="#contacto" data-index="5" style="--thumb:url('assets/img/thumb-personal.webp')">
                   <span class="class-row__num">06</span>
                   <span class="class-row__name">Personales</span>
                   <span class="class-row__meta">1:1 · A medida</span>
@@ -421,7 +457,11 @@
     <!-- ============ BAND ============ -->
     <section class="band" aria-labelledby="bandTitle">
       <div class="band__media parallax" data-parallax="0.3">
-        <img src="assets/img/band.jpg" width="1600" height="900" alt="Atleta de Molis Box levantando una barra sobre la cabeza" loading="lazy">
+        <picture>
+          <source type="image/avif" srcset="assets/img/band-800.avif 800w, assets/img/band-1200.avif 1200w, assets/img/band-1600.avif 1600w" sizes="100vw">
+          <source type="image/webp" srcset="assets/img/band-800.webp 800w, assets/img/band-1200.webp 1200w, assets/img/band-1600.webp 1600w" sizes="100vw">
+          <img src="assets/img/band-1600.jpg" srcset="assets/img/band-800.jpg 800w, assets/img/band-1200.jpg 1200w, assets/img/band-1600.jpg 1600w" sizes="100vw" width="1600" height="900" alt="Atleta de Molis Box levantando una barra sobre la cabeza" loading="lazy" decoding="async">
+        </picture>
       </div>
       <div class="band__scrim" aria-hidden="true"></div>
       <div class="wrap band__inner">
@@ -453,7 +493,7 @@
 
         <div class="reels">
           <figure class="reel reveal">
-            <video class="reel__video" muted loop playsinline autoplay preload="metadata" poster="assets/img/poster-wod.jpg" aria-label="Vídeo de un entrenamiento WOD en Molis Box">
+            <video class="reel__video" muted loop playsinline preload="none" poster="assets/img/poster-wod-720.webp" aria-label="Vídeo de un entrenamiento WOD en Molis Box" data-autostart>
               <source src="assets/video/wod.mp4" type="video/mp4">
             </video>
             <figcaption class="reel__caption"><span>01</span>WOD · 19:00</figcaption>
@@ -461,7 +501,7 @@
           </figure>
 
           <figure class="reel reveal" style="--d:.1s">
-            <video class="reel__video" muted loop playsinline preload="none" poster="assets/img/poster-hyfit.jpg" aria-label="Vídeo de una salida de Hyfit en Molis Box">
+            <video class="reel__video" muted loop playsinline preload="none" poster="assets/img/poster-hyfit-720.webp" aria-label="Vídeo de una salida de Hyfit en Molis Box">
               <source src="assets/video/hyfit.mp4" type="video/mp4">
             </video>
             <figcaption class="reel__caption"><span>02</span>Hyfit · salida a correr</figcaption>
@@ -472,15 +512,27 @@
 
       <div class="gallery">
         <figure class="gallery__item gallery__item--tall parallax reveal">
-          <img src="assets/img/gallery-a.jpg" width="720" height="900" alt="Socio de Molis Box con una barra en la zona de fuerza" loading="lazy">
+          <picture>
+            <source type="image/avif" srcset="assets/img/gallery-a-360.avif 360w, assets/img/gallery-a-540.avif 540w, assets/img/gallery-a-720.avif 720w" sizes="(max-width: 900px) 84vw, 36vw">
+            <source type="image/webp" srcset="assets/img/gallery-a-360.webp 360w, assets/img/gallery-a-540.webp 540w, assets/img/gallery-a-720.webp 720w" sizes="(max-width: 900px) 84vw, 36vw">
+            <img src="assets/img/gallery-a-720.jpg" srcset="assets/img/gallery-a-360.jpg 360w, assets/img/gallery-a-540.jpg 540w, assets/img/gallery-a-720.jpg 720w" sizes="(max-width: 900px) 84vw, 36vw" width="720" height="900" alt="Socio de Molis Box con una barra en la zona de fuerza" loading="lazy" decoding="async">
+          </picture>
           <figcaption>Fuerza · cada semana</figcaption>
         </figure>
         <figure class="gallery__item parallax reveal" data-parallax="0.18" style="--d:.08s">
-          <img src="assets/img/gallery-b.jpg" width="720" height="900" alt="Dos socios de Molis Box conversando después de entrenar" loading="lazy">
+          <picture>
+            <source type="image/avif" srcset="assets/img/gallery-b-360.avif 360w, assets/img/gallery-b-540.avif 540w, assets/img/gallery-b-720.avif 720w" sizes="(max-width: 900px) 84vw, 36vw">
+            <source type="image/webp" srcset="assets/img/gallery-b-360.webp 360w, assets/img/gallery-b-540.webp 540w, assets/img/gallery-b-720.webp 720w" sizes="(max-width: 900px) 84vw, 36vw">
+            <img src="assets/img/gallery-b-720.jpg" srcset="assets/img/gallery-b-360.jpg 360w, assets/img/gallery-b-540.jpg 540w, assets/img/gallery-b-720.jpg 720w" sizes="(max-width: 900px) 84vw, 36vw" width="720" height="900" alt="Dos socios de Molis Box conversando después de entrenar" loading="lazy" decoding="async">
+          </picture>
           <figcaption>Después del WOD</figcaption>
         </figure>
         <figure class="gallery__item gallery__item--tall parallax reveal" data-parallax="0.24" style="--d:.16s">
-          <img src="assets/img/gallery-c.jpg" width="720" height="900" alt="Socia de Molis Box levantando una barra sobre la cabeza" loading="lazy">
+          <picture>
+            <source type="image/avif" srcset="assets/img/gallery-c-360.avif 360w, assets/img/gallery-c-540.avif 540w, assets/img/gallery-c-720.avif 720w" sizes="(max-width: 900px) 84vw, 36vw">
+            <source type="image/webp" srcset="assets/img/gallery-c-360.webp 360w, assets/img/gallery-c-540.webp 540w, assets/img/gallery-c-720.webp 720w" sizes="(max-width: 900px) 84vw, 36vw">
+            <img src="assets/img/gallery-c-720.jpg" srcset="assets/img/gallery-c-360.jpg 360w, assets/img/gallery-c-540.jpg 540w, assets/img/gallery-c-720.jpg 720w" sizes="(max-width: 900px) 84vw, 36vw" width="720" height="900" alt="Socia de Molis Box levantando una barra sobre la cabeza" loading="lazy" decoding="async">
+          </picture>
           <figcaption>Técnica primero</figcaption>
         </figure>
       </div>
@@ -596,7 +648,7 @@
       <div class="footer__top">
         <div class="footer__brand">
           <a class="logo logo--footer" href="#top" aria-label="Molis Box — inicio">
-            <img class="logo__mark" src="assets/img/logo-mark.webp" alt="" width="44" height="44">
+            <img class="logo__mark" src="assets/img/logo-mark-96.webp" srcset="assets/img/logo-mark-96.webp 1x, assets/img/logo-mark-192.webp 2x" alt="" width="44" height="44">
             <span class="logo__word">Molis<span>Box</span></span>
             <span class="logo__tag">Cross training<br>Mos · Pontevedra</span>
           </a>

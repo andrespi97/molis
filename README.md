@@ -55,7 +55,7 @@ El horario de `#horarios` sigue la imagen de horarios facilitada por el box (L�
 - **Medios a pantalla completa:** el hero es una imagen a sangre de `100svh` con titular, entradilla, CTAs y datos superpuestos; el manifiesto usa dos fotos a sangre (~88svh) con el texto encima; los dos reels de “En vivo” ocupan el ancho completo a ~86svh con el titular integrado y la galería va a sangre. En ≤900px reels y galería pasan a carrusel horizontal con snap.
 - **Navegación sobre imagen:** en el hero la nav va en hueso; al hacer scroll pasa a fondo hueso con texto tinta.
 - **Parallax:** hero, fotos del manifesto, banda y galería mediante `data-parallax` y `--parallax-y`. Se desactiva con `prefers-reduced-motion: reduce`.
-- **Vídeo:** `wod.mp4` arranca silenciado y en bucle; `hyfit.mp4` es click-to-play con poster y `preload="none"`. Ambos tienen botón de pausa/reproducción accesible.
+- **Vídeo:** `wod.mp4` arranca silenciado y en bucle cuando la sección se acerca al viewport; `hyfit.mp4` es click-to-play. Ambos usan `preload="none"`, poster WebP y botón de pausa/reproducción accesible. Los MP4 van sin pista de audio y con `faststart`.
 - **Sección de coaches desactivada:** no hay entrenadores en la navegación ni en la página. En su lugar está “El box, sin filtros” con vídeo y galería. Para recuperarla, crear el bloque y añadir el enlace en `#nav`, menú móvil y footer.
 - **Formulario:** validación en cliente y estado de éxito. **No envía datos todavía** (ver abajo).
 
@@ -70,16 +70,25 @@ El horario de `#horarios` sigue la imagen de horarios facilitada por el box (L�
 
 ## Medios
 
-Todas las fotos y vídeos vienen del material facilitado por Molis Box y están optimizados en `assets/img` y `assets/video`.
+Todas las fotos y vídeos vienen del material facilitado por Molis Box. Cada imagen se sirve en **AVIF** (primera opción), **WebP** (segunda) y **JPEG** (fallback) con `srcset`/`sizes` y el ancho adecuado a su hueco en pantalla.
 
-- `hero.jpg` / `hero-720.jpg` · 1080×1350 y 720×900
-- `manifesto-a.jpg` (1440×900), `manifesto-b.jpg` (900×1200)
-- `disc-*.jpg` (720×900) + `thumb-*.jpg` para la lista de disciplinas
-- `band.jpg` (1600×900), `gallery-a/b/c.jpg` (720×900)
-- `poster-wod.jpg`, `poster-hyfit.jpg`, `reel-wod.jpg`
-- `logo-molis.jpg` (original), `logo-mark.webp`, `logo-badge.webp`, `favicon.png`, `apple-touch-icon.png`, `og.jpg`
+- `hero.avif` / `hero-720.avif` · 1080×1350 y 720×900 (AVIF, WebP y JPEG).
+- `manifesto-a` 720/1080/1440 px y `manifesto-b` 450/675/900 px.
+- `disc-*` y `gallery-*` en 360/540/720 px; `thumb-*.webp` 120×150 para la lista móvil.
+- `band` en 800/1200/1600 px.
+- `poster-wod-720.webp`, `poster-hyfit-720.webp`; `logo-mark-96/192.webp`; `favicon.png`, `apple-touch-icon.png` y `og.jpg` para redes.
+- `logo-molis.jpg`, `logo-badge.webp`, `reel-wod.jpg` y `contact.jpg` son material de archivo y no se cargan en la página.
 
-Los vídeos son verticales 720×1280: `wod.mp4` (≈11 s, 1,2 MB) y `hyfit.mp4` (≈14 s, 3,6 MB). Si se sustituyen, mantener relación vertical y generar nuevos posters desde un frame.
+Los vídeos son verticales 720×1280, H.264 High, sin audio y con `faststart`: `wod.mp4` (≈11 s, 827 KB) y `hyfit.mp4` (≈14 s, 1,7 MB). Si se sustituyen, mantener relación vertical, recortar el audio y generar nuevos posters desde un frame.
+
+### Rendimiento medido (local, sin caché)
+
+| | Primera carga | Imágenes tras recorrer toda la página | Vídeo |
+|---|---|---|---|
+| Móvil 390 px | ~158 KB | ~49 KB | 828 KB (WOD) · 1,7 MB (Hyfit, solo al pulsar) |
+| Escritorio 1440 px | ~211 KB | ~155 KB | 828 KB (WOD) · 1,7 MB (Hyfit, solo al pulsar) |
+
+Los datos incluyen HTML, CSS, JS, fuentes de Google y posters. Las imágenes suponen un 70–90 % menos que los JPEG originales y los vídeos un 47 % menos. En producción conviene activar Brotli/gzip y caché larga para `assets/` desde el hosting.
 
 ## Accesibilidad
 

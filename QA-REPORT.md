@@ -144,6 +144,17 @@ Tras el pedido de "letras más grandes y menos descripciones":
 - Verificado en 320, 390, 768, 1024, 1280, 1440, 1600 y 1920px: 0 scroll horizontal, 0 texto recortado, 0 errores de consola, 0 IDs duplicados, 0 anchors rotos. Anclas a 94px, formulario y toggles de vídeo correctos.
 - En 320×568 el hero crece a 674px porque el contenido no cabe en 568px; se resuelve con scroll vertical, sin solapes.
 
+## 13. Imágenes y vídeos optimizados (01/11)
+
+- **Imágenes:** cada foto se sirve en AVIF (q50), WebP (q78) y JPEG (mozjpeg q79) con `srcset`/`sizes` por hueco real. Hero 720/1080, manifiesto 450–1440, disciplinas y galería 360/540/720, banda 800/1200/1600, posters 480/720.
+- **Logos:** mark a 96/192 px en WebP; favicon y apple-touch-icon reoptimizados (9,7 → 4,1 KB y 60,7 → 20,3 KB).
+- **Posters:** WebP (poster WOD 21 → 12 KB; Hyfit 42 → 26 KB).
+- **Vídeo:** H.264 High sin audio y `+faststart`; WOD 1,2 MB → 827 KB, Hyfit 3,6 MB → 1,7 MB (−47 %).
+- **Carga diferida:** los MP4 usan `preload="none"`; el WOD se reproduce con `IntersectionObserver` a 320px del viewport. En la primera carga no se descarga ningún vídeo.
+- **Preload del hero** apunta a AVIF 720/1080 con `sizes="100vw"`; no se descarga el JPEG de respaldo.
+- **Medido sin caché:** primera carga 158 KB (390px) / 211 KB (1440px). Recorriendo toda la página: 49 KB de imágenes en móvil y 155 KB en escritorio. Antes: 1,7 MB de imágenes y 4,7 MB de vídeo.
+- **QA 320–1920px:** 0 scroll horizontal, 0 imágenes rotas, 0 errores de consola, 0 recursos 404. Los “clips” del botón de reel en ≤900px son los del carrusel fuera de pantalla, no recortes.
+
 ## Pendientes para producción (de README)
 
 1. Conectar el formulario a un endpoint real
