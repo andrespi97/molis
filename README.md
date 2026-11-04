@@ -7,11 +7,41 @@ index.html              · página principal (secciones, copia, SEO, JSON-LD)
 privacidad.html         · aviso legal, privacidad y cookies
 robots.txt              · indexación (privacidad.html excluida)
 sitemap.xml             · mapa del sitio
-assets/css/styles.css   · sistema visual, layout, responsive, parallax y motion
-assets/js/app.js        · menú, reveals, scrollspy, horarios, parallax, vídeo y formulario
+
+assets/css/styles.css   · índice que importa los módulos, en orden de cascada
+assets/css/base.css     · tokens, reset, layout, tipografía y botones
+assets/css/nav.css      · navegación, menú móvil y parallax
+assets/css/hero.css     · hero y marquesina
+assets/css/manifesto.css, classes.css, schedule.css, pricing.css,
+band.css, live.css, quote.css, contact.css · un archivo por sección
+assets/css/footer.css   · footer y CTA móvil
+assets/css/legal.css    · páginas legales
+assets/css/motion.css   · reveals
+assets/css/responsive.css · media queries y motion reducido
+
+assets/js/app.js        · punto de entrada: importa y arranca los módulos
+assets/js/utils.js      · helpers ($, $$, reduced motion)
+assets/js/nav.js        · nav pegajosa, progreso y menú
+assets/js/reveal.js     · reveals y scrollspy
+assets/js/classes.js    · filas de clases y foto de vista previa
+assets/js/schedule-data.js · datos del horario semanal
+assets/js/schedule.js   · render del horario
+assets/js/parallax.js   · parallax
+assets/js/video.js      · reels de vídeo
+assets/js/form.js       · validación del formulario
+assets/js/year.js       · año del footer
+
 assets/img/             · fotos optimizadas, logo, posters y OG image
 assets/video/           · reels verticales WOD e Hyfit
 ```
+
+## Estructura del código
+
+Cada archivo se mantiene por debajo de 300 líneas para que sea fácil de editar.
+El CSS se importa desde `assets/css/styles.css` (el orden de los `@import` es el
+orden de cascada). El JavaScript usa módulos ES nativos: `app.js` solo importa y
+arranca cada módulo, así que para añadir una interacción basta con crear el
+archivo en `assets/js/` e importarlo allí.
 
 ## Ver en local
 
@@ -20,7 +50,7 @@ python3 -m http.server 4173
 # http://localhost:4173
 ```
 
-No abras `index.html` con `file://`: los vídeos y algunas rutas necesitan servidor.
+No abras `index.html` con `file://`: los módulos ES y los vídeos necesitan servidor.
 
 ## Contenido real ya integrado
 
@@ -45,7 +75,7 @@ No abras `index.html` con `file://`: los vídeos y algunas rutas necesitan servi
 - Molis Gym · +10 €/mes
 - Bono 1 sesión · 8 €
 
-El horario de `#horarios` sigue la imagen de horarios facilitada por el box (L–V con varias franjas a las 19:00 y 20:00, sábado 10:00 + Open Box). Se renderiza desde el array `SCHEDULE` en `assets/js/app.js`; el día actual se selecciona automáticamente y las pestañas admiten flechas, `Home` y `End`.
+El horario de `#horarios` sigue la imagen de horarios facilitada por el box (L–V con varias franjas a las 19:00 y 20:00, sábado 10:00 + Open Box). Se renderiza desde el array `SCHEDULE` en `assets/js/schedule-data.js`; el día actual se marca automáticamente.
 
 ## Diseño y comportamiento
 
@@ -61,7 +91,7 @@ El horario de `#horarios` sigue la imagen de horarios facilitada por el box (L�
 
 ## Antes de publicar
 
-1. **Conectar el formulario** a un endpoint real (Formspree, Resend, Cloudflare Worker o API propia) en el handler `submit` de `assets/js/app.js`. Hoy solo muestra `#formSuccess`.
+1. **Conectar el formulario** a un endpoint real (Formspree, Resend, Cloudflare Worker o API propia) en el handler `submit` de `assets/js/form.js`. Hoy solo muestra `#formSuccess`.
 2. **Completar datos legales** en `privacidad.html`: NIF, correo definitivo y revisión por asesoría. El correo `info@molisbox.com` es provisional.
 3. **Confirmar tarifas, horarios y condiciones** con el box. La nota de `#precios` ya avisa de que deben consultarse.
 4. **Dominio:** canonical, `og:url`, `og:image`, JSON-LD, `robots.txt` y `sitemap.xml` apuntan a `https://molisbox.com/`. Si el dominio final es otro, actualizar `index.html`, `privacidad.html` y el JSON-LD.
@@ -73,9 +103,9 @@ El horario de `#horarios` sigue la imagen de horarios facilitada por el box (L�
 Todas las fotos y vídeos vienen del material facilitado por Molis Box. Cada imagen se sirve en **AVIF** (primera opción), **WebP** (segunda) y **JPEG** (fallback) con `srcset`/`sizes` y el ancho adecuado a su hueco en pantalla.
 
 - `hero.avif` / `hero-720.avif` · 1080×1350 y 720×900 (AVIF, WebP y JPEG).
-- `manifesto-a` 720/1080/1440 px y `manifesto-b` 450/675/900 px.
+- Manifiesto: `manifesto-a` 720/1080/1440 px y `disc-fullbody` 360/540/720 px como inset.
 - `disc-*` y `gallery-*` en 360/540/720 px; `thumb-*.webp` 120×150 para la lista móvil.
-- `band` en 800/1200/1600 px.
+- Banda: `band` 800/1200/1600 px y `disc-personal` 360/540/720 px en ≤900 px.
 - `poster-wod-720.webp`, `poster-hyfit-720.webp`; `logo-mark-96/192.webp`; `favicon.png`, `apple-touch-icon.png` y `og.jpg` para redes.
 - `logo-molis.jpg`, `logo-badge.webp`, `reel-wod.jpg` y `contact.jpg` son material de archivo y no se cargan en la página.
 

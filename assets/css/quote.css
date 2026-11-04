@@ -1,0 +1,44 @@
+/* ---------- Cita ---------- */
+.quote {
+  position: relative;
+  padding-block: clamp(64px, 8vw, 116px);
+  background: var(--accent);
+  color: var(--ink);
+  overflow: hidden;
+}
+.quote__inner { position: relative; }
+.quote__mark {
+  position: absolute;
+  top: -0.14em;
+  left: 0.02em;
+  z-index: 0;
+  font-family: var(--font-display);
+  font-size: clamp(18rem, 34vw, 32rem);
+  line-height: 1;
+  color: rgba(11, 11, 11, 0.1);
+  pointer-events: none;
+  user-select: none;
+}
+.quote__body { position: relative; z-index: 1; }
+.quote blockquote {
+  max-width: 24ch;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.6vw, 4.8rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+.quote__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  margin-top: clamp(22px, 3vw, 34px);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.quote__foot strong { font-weight: 500; }
+.quote__stars { letter-spacing: 0.2em; }

@@ -155,6 +155,20 @@ Tras el pedido de "letras más grandes y menos descripciones":
 - **Medido sin caché:** primera carga 158 KB (390px) / 211 KB (1440px). Recorriendo toda la página: 49 KB de imágenes en móvil y 155 KB en escritorio. Antes: 1,7 MB de imágenes y 4,7 MB de vídeo.
 - **QA 320–1920px:** 0 scroll horizontal, 0 imágenes rotas, 0 errores de consola, 0 recursos 404. Los “clips” del botón de reel en ≤900px son los del carrusel fuera de pantalla, no recortes.
 
+## 14. Pasada de diseño UX/UI (04/11/2026)
+
+Revisión visual a 320, 390, 768 y 1440 px sobre el refactor modular. Cambios aplicados:
+
+- **Tarifas:** rejilla de extras de 4 → 3 columnas (había una celda vacía) y apilada en móvil; retirada la altura mínima fija de las tarjetas, que dejaba ~120 px muertos.
+- **Cita:** la comilla gigante ya no se recorta por arriba/izquierda; los dos pies se separan con `space-between`.
+- **Clases:** la vista previa ocupa 58 % y su máscara termina antes de la lista (desaparece la silueta fantasma bajo las filas); en móvil se recupera la duración/nivel de cada clase bajo el nombre.
+- **Horarios:** las duraciones vuelven a mostrarse en móvil; la etiqueta `HOY` pasa a tinta oscura para tener contraste real.
+- **Dirección de arte:** el inset del manifiesto usa ahora `disc-fullbody` (retrato cercano, en vez de la escena lejana) y la banda usa `disc-personal` en ≤900 px (dos personas, encuadre vertical); en escritorio el texto de la banda sube al tercio superior para no tapar la cara.
+- **Footer:** `line-height` de la palabra gigante corregido para que no corte los remates.
+- **Menú móvil:** el foco entra en el menú solo al abrirlo con teclado; con puntero no aparecen anillos de foco persistentes. Escape devuelve el foco al botón.
+- **Verificación:** 0 errores de consola, 0 peticiones fallidas, 0 imágenes rotas, 0 IDs duplicados, 0 anclas rotas y 0 scroll horizontal en los cuatro viewports y en `privacidad.html`. 6 clases, 6 previews, 6 días y 45 slots; reveals 18/18 con scroll real.
+- **Límite de tamaño:** todos los archivos de texto quedan por debajo de 300 líneas (máximo: `index.html`, 299).
+
 ## Pendientes para producción (de README)
 
 1. Conectar el formulario a un endpoint real
