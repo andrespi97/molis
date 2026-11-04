@@ -6,7 +6,7 @@
   row-gap: 48px;
   align-items: start;
 }
-.contact__copy { grid-column: 1 / 6; }
+.contact__copy { grid-column: 1 / 7; }
 .contact__lead {
   margin-top: 24px;
   max-width: 40ch;
@@ -34,6 +34,49 @@
 .contact__info dd { font-size: 15.5px; line-height: 1.55; }
 .contact__info a { border-bottom: 1px solid var(--line); }
 .contact__info a:hover { color: var(--accent-ink); border-color: var(--accent-ink); }
+.contact__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+.contact__card {
+  grid-column: 8 / 13;
+  padding: clamp(28px, 4vw, 48px);
+  background: var(--ink);
+  color: var(--bone);
+  border: 1px solid var(--ink);
+  box-shadow: 8px 8px 0 rgba(11, 11, 11, 0.08);
+}
+.contact__card-kicker {
+  margin-bottom: clamp(20px, 3vw, 36px);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.contact__phone {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.6vw, 4.4rem);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  color: var(--bone);
+  transition: color 0.3s var(--ease);
+}
+.contact__phone:hover { color: var(--accent); }
+.contact__card-name {
+  margin-top: 14px;
+  font-size: 15.5px;
+  color: var(--bone);
+}
+.contact__card-note {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line-light);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+  color: #979186;
+}
 
 .contact__form {
   grid-column: 7 / 13;
