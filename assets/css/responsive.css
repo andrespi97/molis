@@ -24,7 +24,6 @@
   .class-row { grid-template-columns: 30px minmax(0, 1fr) 20px; }
 
   .contact__copy { grid-column: 1 / 7; }
-  .contact__form { grid-column: 7 / 13; }
 }
 
 /* Portátiles con poca altura: comprime el hero para que la marquesina entre en pantalla */
@@ -154,12 +153,9 @@
     scroll-snap-align: start;
   }
 
-  .quote__body { max-width: 26ch; }
-
   .contact__grid { display: block; }
   .contact__copy { max-width: 620px; }
   .contact__card { max-width: 620px; margin-top: 40px; }
-  .contact__form { margin-top: 40px; }
 
   .footer__top { grid-template-columns: 1fr 1fr; row-gap: 36px; }
   .footer__brand { grid-column: 1 / -1; }
@@ -255,12 +251,8 @@
     height: clamp(340px, 52svh, 470px);
   }
 
-  .quote__mark { font-size: 16rem; top: -0.1em; }
-
   .contact__info { grid-template-columns: 1fr; }
   .contact__card { box-shadow: 5px 5px 0 rgba(11, 11, 11, 0.08); padding: 24px 20px; }
-  .contact__form { box-shadow: 5px 5px 0 rgba(11, 11, 11, 0.08); padding: 20px 18px; }
-  .field-row { grid-template-columns: 1fr; gap: 0; }
 
   .footer__top { grid-template-columns: 1fr 1fr; gap: 30px 20px; }
   .footer__bottom { justify-content: flex-start; }

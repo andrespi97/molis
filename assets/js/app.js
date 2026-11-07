@@ -9,7 +9,6 @@ import { initClasses } from "./classes.js";
 import { initSchedule } from "./schedule.js";
 import { initParallax } from "./parallax.js";
 import { initVideo } from "./video.js";
-import { initForm } from "./form.js";
 import { initYear } from "./year.js";
 
 initNav();
@@ -19,5 +18,4 @@ initClasses();
 initSchedule();
 initParallax();
 initVideo();
-initForm();
 initYear();

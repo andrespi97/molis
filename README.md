@@ -13,7 +13,7 @@ assets/css/base.css     · tokens, reset, layout, tipografía y botones
 assets/css/nav.css      · navegación, menú móvil y parallax
 assets/css/hero.css     · hero y marquesina
 assets/css/manifesto.css, classes.css, schedule.css, pricing.css,
-band.css, live.css, quote.css, contact.css · un archivo por sección
+band.css, live.css, contact.css · un archivo por sección
 assets/css/footer.css   · footer y CTA móvil
 assets/css/legal.css    · páginas legales
 assets/css/motion.css   · reveals
@@ -28,7 +28,6 @@ assets/js/schedule-data.js · datos del horario semanal
 assets/js/schedule.js   · render del horario
 assets/js/parallax.js   · parallax
 assets/js/video.js      · reels de vídeo
-assets/js/form.js       · validación del formulario
 assets/js/year.js       · año del footer
 
 assets/img/             · fotos optimizadas, logo, posters y OG image
@@ -87,16 +86,16 @@ El horario de `#horarios` sigue la imagen de horarios facilitada por el box (L�
 - **Parallax:** hero, fotos del manifesto, banda y galería mediante `data-parallax` y `--parallax-y`. Se desactiva con `prefers-reduced-motion: reduce`.
 - **Vídeo:** `wod.mp4` arranca silenciado y en bucle cuando la sección se acerca al viewport; `hyfit.mp4` es click-to-play. Ambos usan `preload="none"`, poster WebP y botón de pausa/reproducción accesible. Los MP4 van sin pista de audio y con `faststart`.
 - **Sección de coaches desactivada:** no hay entrenadores en la navegación ni en la página. En su lugar está “El box, sin filtros” con vídeo y galería. Para recuperarla, crear el bloque y añadir el enlace en `#nav`, menú móvil y footer.
-- **Formulario:** validación en cliente y estado de éxito. **No envía datos todavía** (ver abajo).
+- **Contacto:** la web es informativa, sin formulario. La sección `#contacto` ofrece llamada directa, WhatsApp, dirección y horario.
 
 ## Antes de publicar
 
-1. **Conectar el formulario** a un endpoint real (Formspree, Resend, Cloudflare Worker o API propia) en el handler `submit` de `assets/js/form.js`. Hoy solo muestra `#formSuccess`.
-2. **Completar datos legales** en `privacidad.html`: NIF, correo definitivo y revisión por asesoría. El correo `info@molisbox.com` es provisional.
-3. **Confirmar tarifas, horarios y condiciones** con el box. La nota de `#precios` ya avisa de que deben consultarse.
-4. **Dominio:** canonical, `og:url`, `og:image`, JSON-LD, `robots.txt` y `sitemap.xml` apuntan a `https://molisbox.com/`. Si el dominio final es otro, actualizar `index.html`, `privacidad.html` y el JSON-LD.
-5. **Revisar** `robots.txt` y `sitemap.xml` tras confirmar el dominio. `privacidad.html` va en `noindex` y bloqueada en `robots.txt`; quitar ambas cosas solo si se quiere indexar.
-6. **Fonts:** valorar autoalojar Anton, Inter Tight y JetBrains Mono para rendimiento y GDPR (hoy se piden a Google Fonts).
+1. **Completar datos legales** en `privacidad.html`: NIF, correo definitivo y revisión por asesoría. El correo `info@molisbox.com` es provisional.
+2. **Confirmar tarifas, horarios y condiciones** con el box. La nota de `#precios` ya avisa de que deben consultarse.
+3. **Dominio:** canonical, `og:url`, `og:image`, JSON-LD, `robots.txt` y `sitemap.xml` apuntan a `https://molisbox.com/`. Si el dominio final es otro, actualizar `index.html`, `privacidad.html` y el JSON-LD.
+4. **Revisar** `robots.txt` y `sitemap.xml` tras confirmar el dominio. `privacidad.html` va en `noindex` y bloqueada en `robots.txt`; quitar ambas cosas solo si se quiere indexar.
+5. **Fonts:** valorar autoalojar Anton, Inter Tight y JetBrains Mono para rendimiento y GDPR (hoy se piden a Google Fonts).
+6. **Derechos de imagen:** confirmar autorización de las personas que aparecen en fotos y vídeos.
 
 ## Medios
 
@@ -122,4 +121,4 @@ Los datos incluyen HTML, CSS, JS, fuentes de Google y posters. Las imágenes sup
 
 ## Accesibilidad
 
-Skip link, `:focus-visible`, menú móvil con `inert` y cierre con `Escape`, pestañas de horario con roles ARIA, errores de formulario anunciados con `aria-live`, vídeos con etiqueta y botón, y movimiento reducido respetado. El contraste de textos pequeños se ajustó a AA sobre hueso, papel y tinta.
+Skip link, `:focus-visible`, menú móvil con `inert` y cierre con `Escape`, pestañas de horario con roles ARIA, vídeos con etiqueta y botón, y movimiento reducido respetado. El contraste de textos pequeños se ajustó a AA sobre hueso, papel y tinta.

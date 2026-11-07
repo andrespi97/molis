@@ -61,13 +61,7 @@ Sin overflow horizontal no intencional en ningún viewport. Los elementos marcad
 
 ## 6. Formulario
 
-| Escenario | Resultado |
-| --- | --- |
-| Submit vacío | Errores en los 4 campos (nombre, email, teléfono, privacidad) con `aria-live` ✅ |
-| Submit válido | Estado `is-sent` + `#formSuccess` visible ✅ |
-| Validaciones | Email regex, teléfono 9–11 dígitos ✅ |
-
-⚠️ Recordatorio README: el formulario **no envía datos** hasta conectar a un endpoint real.
+Eliminado el 06/11/2026 al convertir la web en informativa. El contacto se hace por teléfono y WhatsApp; ver sección 15.
 
 ## 7. Scrollspy y barra de progreso
 
@@ -169,11 +163,18 @@ Revisión visual a 320, 390, 768 y 1440 px sobre el refactor modular. Cambios ap
 - **Verificación:** 0 errores de consola, 0 peticiones fallidas, 0 imágenes rotas, 0 IDs duplicados, 0 anclas rotas y 0 scroll horizontal en los cuatro viewports y en `privacidad.html`. 6 clases, 6 previews, 6 días y 45 slots; reveals 18/18 con scroll real.
 - **Límite de tamaño:** todos los archivos de texto quedan por debajo de 300 líneas (máximo: `index.html`, 299).
 
+## 15. Web informativa y limpieza (06/11/2026)
+
+- **Sin formulario:** la web queda como informativa. El contacto se resuelve con llamada directa y WhatsApp desde `#contacto`.
+- **Eliminados:** `assets/js/form.js`, `assets/css/quote.css`, la importación de ambos en `app.js`/`styles.css`, los estilos de formulario de `contact.css` y sus reglas responsive.
+- **Legal:** `privacidad.html` ya no habla de formulario ni de datos de reserva; describe el contacto por teléfono, WhatsApp, correo y redes. Añadido el teléfono de contacto.
+- **Documentación:** README y QA actualizados para que no mencionen un formulario inexistente.
+
 ## Pendientes para producción (de README)
 
-1. Conectar el formulario a un endpoint real
-2. Completar NIF + correo definitivo en `privacidad.html`
-3. Confirmar tarifas con el box
-4. Actualizar dominio si no es `molisbox.com`
-5. Revisar `robots.txt`/`sitemap.xml` y el `noindex` de la página legal
-6. Valorar autoalojar las fuentes
+1. Completar NIF + correo definitivo en `privacidad.html`
+2. Confirmar tarifas, horarios y teléfono con el box
+3. Actualizar dominio si no es `molisbox.com`
+4. Revisar `robots.txt`/`sitemap.xml` y el `noindex` de la página legal
+5. Valorar autoalojar las fuentes
+6. Confirmar derechos de imagen de socios en fotos y vídeos
